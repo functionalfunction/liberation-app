@@ -18,6 +18,7 @@ interface BookData {
 
 const App: React.FC = () => {
   const [isbnData, setIsbnData] = useState<BookData | null>(null);
+  const [bookAdded, setBookAdded] = useState(false);
   const [cameraPermission, setCameraPermission] = useState<boolean | null>(
     null
   );
@@ -73,9 +74,16 @@ const App: React.FC = () => {
     return null;
   };
 
-  const handleAddBook = () => {
-    // Add your logic here for handling the "Add" button press
-    console.log("Book added!");
+  const handleAddBook = async () => {
+    // Add an API call to create the book
+    await axios
+      .post(`localhost:8080/books/create`)
+      .then((res) => {
+        setBookAdded(true);
+      })
+      .catch((error) => {
+        console.log("Book added!");
+      });
   };
 
   return (
