@@ -62,10 +62,20 @@ const App: React.FC = () => {
           <Text>Title: {isbnData.title}</Text>
           <Text>Author: {isbnData.authors?.join(", ") || "Unknown"}</Text>
           {/* Add more details as needed */}
+          <View style={styles.addButtonContainer}>
+            <TouchableOpacity onPress={handleAddBook} style={styles.addButton}>
+              <Text style={styles.addButtonLabel}>Add</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       );
     }
     return null;
+  };
+
+  const handleAddBook = () => {
+    // Add your logic here for handling the "Add" button press
+    console.log("Book added!");
   };
 
   return (
@@ -105,6 +115,9 @@ interface Styles {
   resetButton: ViewStyle;
   resetButtonText: ViewStyle;
   isbnDataContainer: ViewStyle;
+  addButtonContainer: ViewStyle;
+  addButton: ViewStyle;
+  addButtonLabel: ViewStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -140,11 +153,26 @@ const styles = StyleSheet.create<Styles>({
   },
   isbnDataContainer: {
     position: "absolute",
-    top: 20,
-    left: 20,
+    top: "50%",
+    left: "50%",
+    transform: [{ translateX: -50 }, { translateY: -50 }],
     backgroundColor: "rgba(255, 255, 255, 0.8)",
     padding: 10,
     borderRadius: 5,
+  },
+  addButtonContainer: {
+    marginTop: 20,
+    alignItems: "center",
+  },
+  addButton: {
+    backgroundColor: "green",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  addButtonLabel: {
+    fontSize: 16,
+    color: "white",
   },
 });
 
