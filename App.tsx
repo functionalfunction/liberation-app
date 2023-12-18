@@ -57,7 +57,7 @@ const App: React.FC = () => {
   };
 
   const renderIsbnData = () => {
-    if (isbnData) {
+    if (isbnData && !bookAdded) {
       return (
         <View style={styles.isbnDataContainer}>
           <Text>Title: {isbnData.title}</Text>
@@ -77,7 +77,12 @@ const App: React.FC = () => {
   const handleAddBook = async () => {
     // Add an API call to create the book
     await axios
-      .post(`localhost:8080/books/create`)
+      .post(`URI`, {
+        id: 700,
+        name: isbnData.title,
+        author: isbnData.authors[0],
+        authorId: 2,
+      })
       .then((res) => {
         setBookAdded(true);
       })
