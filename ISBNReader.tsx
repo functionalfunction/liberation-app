@@ -118,6 +118,12 @@ const ISBNReader: React.FC = () => {
         <Text style={styles.toggleButtonText}>Toggle Camera</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => navigation.navigate("BookList")}
+        style={styles.navigateToBookListButton}
+      >
+        <Text style={styles.navigateToBookListButtonText}>Book List</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
         onPress={() => setIsbnData(null)}
         style={styles.resetButton}
       >
@@ -139,6 +145,8 @@ interface Styles {
   addButtonContainer: ViewStyle;
   addButton: ViewStyle;
   addButtonLabel: ViewStyle;
+  navigateToBookListButton: ViewStyle;
+  navigateToBookListButtonText: ViewStyle;
 }
 
 const styles = StyleSheet.create<Styles>({
@@ -194,6 +202,16 @@ const styles = StyleSheet.create<Styles>({
   addButtonLabel: {
     fontSize: 16,
     color: "white",
+  },
+  navigateToBookListButton: {
+    position: "absolute",
+    bottom: 80,
+    backgroundColor: "lightblue",
+    padding: 10,
+    borderRadius: 5,
+  },
+  navigateToBookListButtonText: {
+    fontSize: 16,
   },
 });
 

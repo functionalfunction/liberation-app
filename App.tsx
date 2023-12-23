@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const Navigation: React.FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ISBNReader">
+      <Stack.Navigator initialRouteName="BookList">
         <Stack.Screen name="ISBNReader" component={ISBNReader} />
         <Stack.Screen name="BookList" component={BookListScreen} />
       </Stack.Navigator>
