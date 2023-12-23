@@ -92,11 +92,11 @@ const ISBNReader: React.FC = () => {
       })
       .then((res) => {
         setBookAdded(true);
+        navigation.navigate("BookList");
       })
       .catch((error) => {
-        console.log("Book added!");
+        console.log("Error happened!");
       });
-    navigation.navigate("BookList");
   };
 
   return (
