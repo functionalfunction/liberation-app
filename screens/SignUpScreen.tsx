@@ -9,7 +9,7 @@ import {
   StyleSheet,
 } from "react-native";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./config/firebase";
+import { auth } from "../config/firebase";
 import { useNavigation } from "@react-navigation/native";
 
 const SignUpScreen: React.FC = () => {
